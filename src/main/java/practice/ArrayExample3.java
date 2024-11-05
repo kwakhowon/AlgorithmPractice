@@ -27,9 +27,20 @@ B
 D
 */
 public class ArrayExample3 {
+    public static String solution(int n, int[] a, int[] b){
+        String answer = "";
+        for (int i = 0; i < n; i++) {
+            if(a[i] == b[i]) answer += "D\n";
+            else if ((a[i] == 1 && b[i] == 3) ||
+                    (a[i] == 2 && b[i] == 1) ||
+                    (a[i] == 3 && b[i] == 2)) {
+                answer += ("A\n");
+            }else answer += "B\n";
+        }
+        return answer;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String answer = "";
         int N = sc.nextInt();
         int[] arr = new int[N];
         int[] arr2 = new int[N];
@@ -39,14 +50,6 @@ public class ArrayExample3 {
         for (int i = 0; i < N; i++) {
             arr2[i] = sc.nextInt();
         }
-        for (int i = 0; i < N; i++) {
-            if(arr[i] == arr2[i]) answer += "D\n";
-            else if ((arr[i] == 1 && arr2[i] == 3) ||
-                    (arr[i] == 2 && arr2[i] == 1) ||
-                    (arr[i] == 3 && arr2[i] == 2)) {
-                answer += ("A\n");
-            }else answer += "B\n";
-            }
-        System.out.println(answer);
+        System.out.print(solution(N, arr, arr2));
         }
     }
